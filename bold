@@ -4,6 +4,8 @@ PVector location;
 PVector velocity;
 PVector gravity;
 
+float gravityStrength = 0.2;
+
 void setup(){
   size(1000,600);
   location = new PVector(100,100);
@@ -21,6 +23,9 @@ void draw(){
     velocity.y = velocity.y * -0.95; 
     location.y = height;
   }
+gravityStrength += 0.001;
+  gravity.set(0, gravityStrength);
+
    stroke(255);
   strokeWeight(2);
   fill(207, 159, 255);
