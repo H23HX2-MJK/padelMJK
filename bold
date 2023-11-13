@@ -1,33 +1,27 @@
-//https://processing.org/examples/bouncingball.html som hjælp
 
-PVector location;
-PVector velocity;
-PVector gravity;
-
-float gravityStrength = 0.2;
-
-void setup(){
+//this is the ball and how it is moving in the game i got a little help from proccing 
+float ballSize = 35;
+PVector ball;
+PVector ballSpeed;
+void setup() {
   size(1000,600);
-  location = new PVector(100,100);
-  velocity = new PVector(1.5,2.1);
-  gravity = new PVector(0,0.2);
+  resetGame();
 }
-void draw(){
-  background (210,4,45);
-  location.add(velocity);
-   velocity.add(gravity);
-    if ((location.x > width) || (location.x < 0)) {
-    velocity.x = velocity.x * -1;
+void draw() {
+  background(210,4,45);
+  fill(207,159,255);
+  ellipse(ball.x, ball.y, ballSize, ballSize);
+  ball.add(ballSpeed);
+   if (ball.y > height - ballSize / 2 || ball.y < ballSize / 2) {
+    ballSpeed.y *= -1;
   }
-  if (location.y > height) {
-    velocity.y = velocity.y * -0.95; 
-    location.y = height;
+   if (ball.x < 0 || ball.x > width) {
+    resetGame();
   }
-gravityStrength += 0.001;
-  gravity.set(0, gravityStrength);
+}
+void resetGame() {
+  ball = new PVector(width / 2, height / 2);
+  float angle = random(TWO_PI);
+  ballSpeed = PVector.fromAngle(angle);
+  ballSpeed.mult(5);
 
-   stroke(255);
-  strokeWeight(2);
-  fill(207, 159, 255);
-  ellipse(location.x,location.y,48,48);
-}
