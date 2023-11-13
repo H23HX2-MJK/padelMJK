@@ -1,8 +1,8 @@
+
 //this is the ball and how it is moving in the game i got a little help from proccing 
 float ballSize = 35;
 PVector ball;
 PVector ballSpeed;
-
 void setup() {
   size(1000,600);
   resetGame();
@@ -14,7 +14,6 @@ void draw() {
   ball.add(ballSpeed);
    if (ball.y > height - ballSize / 2 || ball.y < ballSize / 2) {
     ballSpeed.y *= -1;
-
   }
    if (ball.x < 0 || ball.x > width) {
     resetGame();
@@ -25,4 +24,4 @@ void resetGame() {
   float angle = random(TWO_PI);
   ballSpeed = PVector.fromAngle(angle);
   ballSpeed.mult(5);
-}
+
