@@ -1,1 +1,35 @@
+float paddleWidth = 10;
+float paddleHeight = 80;
+float paddleSpeed = 10;
+float paddleLeftY;
+float paddleRightY;
+
+void setup() {
+  size(1000, 600);
+ 
+}
+void draw() {
+  background(210,4,45);
+
+  
+  fill(2, 138, 15);
+  rect(0, paddleLeftY, paddleWidth, paddleHeight);
+  rect(width - paddleWidth, paddleRightY, paddleWidth, paddleHeight);
+
+  
+  
+
+  movePaddle();
+}
+  void movePaddle() {
+  
+  paddleLeftY = mouseY - paddleHeight / 2;
+
+  
+ 
+
+  
+  paddleLeftY = constrain(paddleLeftY, 0, height - paddleHeight);
+  paddleRightY = constrain(paddleRightY, 0, height - paddleHeight);
+}
 
