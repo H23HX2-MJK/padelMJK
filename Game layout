@@ -1,5 +1,5 @@
 //det her er spillets layout som er reset skærmen og koden til resetgame og gameover
-
+//det her er gameover skærmen som vises når man taber et game 
 void gameOver() {
   background(210,4,45);
   fill(66, 10, 142);
