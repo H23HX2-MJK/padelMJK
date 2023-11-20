@@ -1,1 +1,11 @@
 // dette er det færdige spil hvor bolden, point og padel samt gameover og reset game er med i 
+float ballSize = 35;
+PVector ball;
+PVector ballSpeed;
+
+void setup() {
+  size(1000,600);
+  resetGame();
+}
+void draw(){
+}
