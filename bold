@@ -8,6 +8,7 @@ void setup() {
   size(1000,600);
   resetGame();
 }
+
 void draw() {
   background(210,4,45);
   fill(207,159,255);
@@ -19,6 +20,7 @@ void draw() {
 }
   
 void resetGame() {
+
   ball = new PVector(width / 2, height / 2);
   float angle = random(TWO_PI);
   ballSpeed = PVector.fromAngle(angle);
