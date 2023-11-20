@@ -3,4 +3,4 @@ Der her er et spil som vi er blevet sat til at lave som den første gruppe opgav
 
 hvordan man spiller spillet
 
-du bruger "" til at styre padlen og når den så rammer bolden giver det point når du så har tabt et spil for at starte et nyt skal du trykke på space for at den så starter et nyt spil og du starter forfra
+Du bruger musen til at styre padlen og når den så rammer bolden giver det point når du så har tabt et spil for at starte et nyt skal du trykke på space for at den så starter et nyt spil og du starter forfra
