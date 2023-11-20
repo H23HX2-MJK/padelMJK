@@ -8,4 +8,5 @@ void setup() {
   resetGame();
 }
 void draw(){
+ background(210,4,45);
 }
