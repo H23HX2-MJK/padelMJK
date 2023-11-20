@@ -1,0 +1,90 @@
+// dette er det færdige spil hvor bolden, point og padel samt gameover og reset game er med i 
+float paddleWidth = 10;
+float paddleHeight = 80;
+float paddleSpeed = 10;
+float paddleLeftY;
+float paddleRightY;
+
+float ballSize = 35;
+PVector ball;
+PVector ballSpeed;
+
+void setup() {
+  size(1000, 600);
+  resetGame();
+ 
+}
+void draw() {
+  background(210,4,45);
+
+  
+  fill(2, 138, 15);
+  rect(0, paddleLeftY, paddleWidth, paddleHeight);
+  rect(width - paddleWidth, paddleRightY, paddleWidth, paddleHeight);
+
+  fill(207, 159, 255);
+  ellipse(ball.x, ball.y, ballSize, ballSize);
+
+  
+
+  movePaddle();
+  
+  ball.add(ballSpeed);
+  
+  if (ball.y > height - ballSize / 2 || ball.y < ballSize / 2) {
+    ballSpeed.y *= -1;
+  }
+
+ 
+  if (
+    (ball.x < paddleWidth && ball.y > paddleLeftY && ball.y < paddleLeftY + paddleHeight) ||
+    (ball.x > width - paddleWidth && ball.y > paddleRightY && ball.y < paddleRightY + paddleHeight)
+  ) {
+    ballSpeed.x *= -1;
+  }
+  if (ball.x < 0 || ball.x > width) {
+    gameOver();
+  }
+}
+  
+  void resetGame() {
+  
+  ball = new PVector(width / 2, height / 2);
+
+  
+  float angle = random(TWO_PI);
+  ballSpeed = PVector.fromAngle(angle);
+  ballSpeed.mult(5); 
+
+ 
+  paddleLeftY = height / 2 - paddleHeight / 2;
+  paddleRightY = height / 2 - paddleHeight / 2;
+  }
+
+  void movePaddle() {
+  
+  paddleLeftY = mouseY - paddleHeight / 2;
+
+   float targetY = ball.y - paddleHeight / 2;
+  paddleRightY += (targetY - paddleRightY) * 0.1;
+  
+  paddleLeftY = constrain(paddleLeftY, 0, height - paddleHeight);
+  paddleRightY = constrain(paddleRightY, 0, height - paddleHeight);
+}
+void gameOver() {
+  background(210,4,45);
+  fill(66, 10, 142);
+  textSize(48);
+  textAlign(CENTER, CENTER);
+  text("Game Over!", width / 2, height / 2 - 40);
+  textSize(32);
+  noLoop(); 
+}
+
+void keyPressed() {
+  
+  if (key == ' ') {
+    loop(); 
+    resetGame(); 
+  }
+}
