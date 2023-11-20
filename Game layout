@@ -1,0 +1,20 @@
+//det her er spillets layout som er reset skærmen og koden til resetgame og gameover
+
+void gameOver() {
+  background(210,4,45);
+  fill(66, 10, 142);
+  textSize(48);
+  textAlign(CENTER, CENTER);
+  text("Game Over!", width / 2, height / 2 - 40);
+  textSize(32);
+  text("Score: " + score, width / 2, height / 2 + 40);
+  noLoop(); 
+}
+// den her kode er til at starte spillet forfra
+void keyPressed() {
+  
+  if (key == ' ') {
+    loop(); 
+    resetGame(); 
+  }
+}
