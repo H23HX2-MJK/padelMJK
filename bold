@@ -15,7 +15,6 @@ void draw() {
   ball.add(ballSpeed);
    if (ball.y > height - ballSize / 2 || ball.y < ballSize / 2) {
     ballSpeed.y *= -1;
-   if (ball.x < 0 || ball.x > width) {
   }
 }
   
