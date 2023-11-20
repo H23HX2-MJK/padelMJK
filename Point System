@@ -1,0 +1,36 @@
+// Her er vores point system.
+// Det primære uddrag af inspiration vil være chatGPT, hvor vi ikke plagierer dens værk, men indedrager inspiration.
+// Min originale idé var at bruge farver som determinanter til point, fx når hvid rammer hvid = +1 point. (inspiration fra min baby-kode i scratch lol)
+// Til gengæld kunne der være nogle problemer der opstår, da i boldens kode, responderer den ikke til farve kollision, men i stedet kanten af banen
+// Her er vores endelige kode.
+
+  int spillerScore = 0;
+// Spillerscoren repræsentere vores score i det heltaget. Nu har vi den som 0, men vi skal finde en måde at opdatere når den rammer paddlen. Men lige nu er det kun et tal.
+
+void setup() {
+  size(1000, 600);
+  
+}
+void draw() {
+  background(210, 4, 45);
+  
+  // Her har vi brug for, at resten af gruppen indesætter ting som bold og paddel.
+  
+  // Her er vores score, eller, en tidlig skitse af den
+  UIScore();
+}
+
+// Nedenunder definere vi vores UIScore. Vi tegner den, simpelthen.
+
+void UIScore() {
+  fill(0);
+  textSize(20);
+  text("Score: " + spillerScore, 20, 30);
+}
+// Her har vi brug for de resulterende variabler fra mine teammates. Uden definition på at noget skores (at paddlen rammer bolden), vil der ingen definition være på at skore i det heltaget.
+// Dette vil sige, at indtil vi har en bouncing ball som kan ramme en paddel, vil scoren for evigt være 0.
+// Men.. det betyder ikke vi kan sidde og eksperimentere lidt.
+void scorePoint() {
+  spillerScore++;
+}
+// Denne linje kode vil være fundamental til at resulterer til et ægte point.
