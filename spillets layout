@@ -1,4 +1,6 @@
 // dette er det færdige spil hvor bolden, point og padel samt gameover og reset game er med i 
+
+// hvorfor ikke PVector når i bruger den til bolden?
 float paddleWidth = 10;
 float paddleHeight = 80;
 float paddleSpeed = 10;
@@ -17,15 +19,14 @@ void setup() {
 void draw() {
   background(210,4,45);
 
-  
+  // i mangler kommentarer i jeres kode..
   fill(2, 138, 15);
+
   rect(0, paddleLeftY, paddleWidth, paddleHeight);
   rect(width - paddleWidth, paddleRightY, paddleWidth, paddleHeight);
 
   fill(207, 159, 255);
   ellipse(ball.x, ball.y, ballSize, ballSize);
-
-  
 
   movePaddle();
   
@@ -48,10 +49,10 @@ void draw() {
 }
   
   void resetGame() {
-  
+  // uhh!! her laver i en ny PVector istedet for at initierer den med nye værdiet
   ball = new PVector(width / 2, height / 2);
 
-  
+  // det er nice! :)
   float angle = random(TWO_PI);
   ballSpeed = PVector.fromAngle(angle);
   ballSpeed.mult(5); 
